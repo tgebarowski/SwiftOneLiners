@@ -84,7 +84,7 @@ dispatcher.wait()
 The problem with the above code is that sendRequest returns its result using escaping closure from a background queue.
 Passing a private handleResponse() function as a closure argument creates a retain cycle, hence deinit is never called on Dispatcher object.
 
-The problem could be easily solved by wrapping either:
+The problem could be easily solved by either:
 
 - inlineing handleResponse content withing the closure where self is weak/unowned
 
